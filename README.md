@@ -2,7 +2,7 @@
 
 ## **Descrição**
 
-Este repositório contém a configuração da LGTM Stack com Prometheus para Kubernetes, utilizando Helm e Helmfile para implantação. A stack inclui serviços como Grafana, Mimir, Prometheus e Tempo, oferecendo uma solução de monitoramento abrangente.
+Este repositório contém a configuração da LGTM Stack com Prometheus para Kubernetes, utilizando Helm e Helmfile para implantação, e Terraform para criar os serviços necessários. A stack inclui serviços como Grafana, Mimir, Prometheus e Tempo, oferecendo uma solução de monitoramento abrangente.
 
 ---
 
