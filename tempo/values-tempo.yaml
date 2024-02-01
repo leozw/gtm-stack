@@ -1313,8 +1313,8 @@ storage:
     s3:
       bucket: "tempo-bucket-test"
       endpoint: "s3.amazonaws.com" 
-      access_key: "AKIA4VHCF2UYXBEIFIW4"
-      secret_key: "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"
+      access_key: ""     # This is a secret injected via an environment variable && should be used if you do not have a service account
+      secret_key: ""     # This is a secret injected via an environment variable && should be used if you do not have a service account
       insecure: false
     # Settings for the block storage backend and buckets.
     block:
@@ -1334,8 +1334,8 @@ storage:
     s3:
       bucket: "tempo-bucket-test"
       endpoint: "s3.amazonaws.com" 
-      access_key: "AKIA4VHCF2UYXBEIFIW4"
-      secret_key: "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"
+      access_key: ""       # This is a secret injected via an environment variable && should be used if you do not have a service account
+      secret_key: ""     # This is a secret injected via an environment variable && should be used if you do not have a service account
       insecure: false
 
 # Global overrides
