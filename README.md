@@ -105,9 +105,11 @@ annotations:
 
 ---
 
-## **Configuração dos Serviços: Loki, Mimir e Tempo**
+## **Configuração dos Serviços: Mimir e Tempo**
 
-A stack GTM dispõe de configurações flexíveis para os serviços Mimir e Tempo, projetadas para se adaptar a diferentes volumes de dados e requisitos de retenção.
+A stack GTM dispõe de configurações flexíveis para os serviços Mimir e Tempo, projetadas para se adaptar a diferentes volumes de dados e requisitos de retenção. 
+
+**Os values ainda estão em revisão!**
 
 - **Mimir**: **`small.yaml`** suporta até 1 milhão de métricas com 30 dias de retenção, **`large.yaml`** para até 10 milhões de métricas com 30 dias de retenção.
 - **Tempo**: **`small.yaml`** acomoda até 1 milhão de traços com 7 dias de retenção, **`large.yaml`** para até 10 milhões de traços com 7 dias de retenção.
@@ -116,12 +118,12 @@ As definições para cada um desses serviços são facilmente gerenciáveis atra
 
 Para ambientes de teste ou desenvolvimento, recomenda-se utilizar as configurações padrão, que já são suficientes para a maioria dos cenários de laboratório.
 
-## 🔧 **Instalação da Stack**
+## 🔧 **Instalação da Stack GTM**
 
 1. Clone o repositório:
     
     ```bash
-    git clone git@github.com:leozw/gtm.git
+    git clone git@github.com:leozw/gtm-stack.git
     ```
     
 2. Navegue até o diretório e execute:
@@ -207,7 +209,7 @@ Para implantar esta stack com eficiência, é importante considerar os requisito
 
 É recomendável avaliar cuidadosamente as necessidades de CPU, memória e armazenamento, ajustando o Cluster ou NodePool de acordo com essas demandas. Esta avaliação ajudará a garantir que a stack opere de forma estável e eficiente.
 
-!https://media.discordapp.net/attachments/890968993110839316/1201618437269618779/image.png?ex=65ca7960&is=65b80460&hm=eea4a4af6ca50617bc60f4873905e1f615cbcb8c578cd875e3e6ca048989f4e3&=&format=webp&quality=lossless&width=774&height=468
+![resources](https://media.discordapp.net/attachments/890968993110839316/1201618437269618779/image.png?ex=65ca7960&is=65b80460&hm=eea4a4af6ca50617bc60f4873905e1f615cbcb8c578cd875e3e6ca048989f4e3&=&format=webp&quality=lossless&width=774&height=468)
 
 ---
 
