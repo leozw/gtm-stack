@@ -188,9 +188,9 @@ Explore as métricas disponíveis e faça consultas para validar os dados do Mim
 
 ## **Armazenamento de Objetos para Mimir e Tempo**
 
-Nossa LGTM Stack utiliza o MinIO como solução padrão de armazenamento de objetos para Mimir e Tempo. Entretanto, é totalmente viável substituir o MinIO por outras opções de armazenamento de objetos que sejam compatíveis. As alternativas incluem:
+Nossa LGTM Stack utiliza o S3 como solução padrão de armazenamento de objetos para Mimir e Tempo. As alternativas incluem:
 
-- AWS S3
+- MinIO
 - Google Cloud Storage
 - Azure Blob Storage
 - Qualquer sistema compatível com a API S3
