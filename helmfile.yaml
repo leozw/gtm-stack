@@ -15,22 +15,22 @@ releases:
   - ./grafana/values-grafana.yaml 
 
 
-# - name: mimir
-#   namespace: lgtm
-#   createNamespace: true
-#   chart: grafana/mimir-distributed
-#   values:
-#   - ./mimir/values-mimir.yaml
+- name: mimir
+  namespace: lgtm
+  createNamespace: true
+  chart: grafana/mimir-distributed
+  values:
+  - ./mimir/values-mimir.yaml
   # - ./mimir/small.yaml # up to 1m metrics
   # - ./mimir/large.yaml # up to 10m metrics
 
 
-# - name: prometheus
-#   namespace: lgtm
-#   createNamespace: true
-#   chart: prometheus-community/kube-prometheus-stack
-#   values:
-#   - ./prometheus/values-prometheus.yaml
+- name: prometheus
+  namespace: lgtm
+  createNamespace: true
+  chart: prometheus-community/kube-prometheus-stack
+  values:
+  - ./prometheus/values-prometheus.yaml
 
 
 - name: tempo

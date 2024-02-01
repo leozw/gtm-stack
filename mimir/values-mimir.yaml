@@ -429,19 +429,37 @@ mimir:
   #
   # Example:
   #permanently delete
+  # structuredConfig: {}
+  
   structuredConfig:
     common:
       storage:
         backend: s3
         s3:
-          bucket_name: "lambda-x-ray"
           endpoint: "s3.amazonaws.com" 
-          access_key_id: "AKIA4VHCF2UYXBEIFIW4"
-          secret_access_key: "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" 
+          # access_key_id: ""           # should be used if you do not have a service account
+          # secret_access_key: ""       # should be used if you do not have a service account
           http:
             insecure_skip_verify: true
 
-  # structuredConfig: {}
+
+    ruler_storage:
+      s3:
+        bucket_name: "mimir-ruler-bucket-123"
+        endpoint: "s3.amazonaws.com" 
+        # access_key_id: ""             # should be used if you do not have a service account
+        # secret_access_key: ""         # should be used if you do not have a service account
+        http:
+          insecure_skip_verify: true
+
+    blocks_storage:
+      s3:
+        bucket_name: lambda-x-ray
+        endpoint: "s3.amazonaws.com" 
+        # access_key_id: ""             # should be used if you do not have a service account
+        # secret_access_key: ""         # should be used if you do not have a service account
+        http:
+          insecure_skip_verify: true
 
 # -- runtimeConfig provides a reloadable runtime configuration. Changing the runtimeConfig doesn't require a restart of all components.
 # For more infromation see https://grafana.com/docs/mimir/latest/configure/about-runtime-configuration/
@@ -1638,7 +1656,7 @@ compactor:
   replicas: 1
   deletion_delay: 1h
   limits:
-  compactor_blocks_retention_period: 1h
+    compactor_blocks_retention_period: 1h
   service:
     annotations: {}
     labels: {}
@@ -1656,7 +1674,8 @@ compactor:
 
   # Pod Labels
   podLabels: {}
-
+  compactor_blocks_retention_period: 1h
+  
   # Pod Annotations
   podAnnotations: {}
 
@@ -1753,6 +1772,9 @@ compactor:
   # -- Jaeger reporter queue size
   # Set to 'null' to use the Jaeger client's default value
   jaegerReporterMaxQueueSize: null
+
+limits:
+  compactor_blocks_retention_period: 1h
 
 memcached:
   image:

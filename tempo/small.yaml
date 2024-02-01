@@ -1,0 +1,70 @@
+distributor:
+  replicas: 3
+  resources:
+    requests:
+      cpu: "0.5"
+      memory: 1Gi
+    limits:
+      cpu: "1"
+      memory: 2Gi
+
+ingester:
+  replicas: 3
+  resources:
+    requests:
+      cpu: "0.5"
+      memory: 2Gi
+    limits:
+      cpu: "1"
+      memory: 4Gi
+
+querier:
+  replicas: 1
+  resources:
+    requests:
+      cpu: "0.5"
+      memory: 1Gi
+    limits:
+      cpu: "1"
+      memory: 2Gi
+
+queryFrontend:
+  replicas: 1
+  resources:
+    requests:
+      cpu: "0.5"
+      memory: 1Gi
+    limits:
+      cpu: "1"
+      memory: 2Gi
+
+compactor:
+  config:
+    compaction:
+      # -- Duration to keep blocks
+      block_retention: 48h
+      # Duration to keep blocks that have been compacted elsewhere
+      compacted_block_retention: 1h
+  replicas: 1
+  resources:
+    requests:
+      cpu: "0.5"
+      memory: 2Gi
+    limits:
+      cpu: "1"
+      memory: 4Gi
+
+minio:
+  enabled: false      
+
+# storage:
+#   trace:
+#     # Configurações do object store (exemplo para Amazon S3)
+#     backend: s3
+#     s3:
+#       bucket_name: "${BUCKET_NAME}"
+#       endpoint: "${BUCKET_HOST}:${BUCKET_PORT}"
+#       access_key_id: "${AWS_ACCESS_KEY_ID}" # This is a secret injected via an environment variable
+#       secret_access_key: "${AWS_SECRET_ACCESS_KEY}" # This is a secret injected via an environment variable
+#       http:
+#         insecure_skip_verify: true 

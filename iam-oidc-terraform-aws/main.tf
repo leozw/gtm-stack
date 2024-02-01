@@ -32,6 +32,13 @@ module "s3-mimir" {
   environment = local.environment
 }
 
+module "s3-mimir-ruler" {
+  source = "./modules/s3"
+
+  name_bucket = "mimir-ruler-bucket"
+  environment = local.environment
+}
+
 module "iam-tempo" {
   source = "./modules/iam"
 
@@ -61,7 +68,8 @@ module "iam-mimir" {
       "string"         = "StringEquals"
       "namespace"      = "lgtm"
       "policy" = templatefile("${path.module}/templates/policy-lgtm.json", {
-        bucket_name = module.s3-mimir.bucket-name
+        bucket_name = module.s3-mimir.bucket-name,
+        bucket_name = module.s3-mimir-ruler.bucket-name
       })
     }
   }
