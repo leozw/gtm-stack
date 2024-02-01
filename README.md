@@ -17,8 +17,7 @@ A stack LGTM com Prometheus é projetada para funcionar como um sistema integrad
 
 Cada componente é essencial e trabalha em conjunto para oferecer uma visão completa e detalhada do ambiente, facilitando o monitoramento, a resolução de problemas e a otimização do desempenho.
 
-![arc-pd.png]([https://prod-files-secure.s3.us-west-2.amazonaws.com/e299bee0-fe31-4ded-b642-8a492100aed7/a4b549cf-fdac-4bd2-ae38-03b2c623bebe/arc-pd.png](https://cdn.discordapp.com/attachments/1095404943663439912/1202669044059340800/arc-pd.png?ex=65ce4bd4&is=65bbd6d4&hm=36f60d393d674a8951242a35a8ed94821872448766aae7cf46ae4da0a63618c6&))
-
+![arc-pd.png](https://cdn.discordapp.com/attachments/1095404943663439912/1202669044059340800/arc-pd.png?ex=65ce4bd4&is=65bbd6d4&hm=36f60d393d674a8951242a35a8ed94821872448766aae7cf46ae4da0a63618c6&)
 ---
 
 ## ➕ **Dependências**
