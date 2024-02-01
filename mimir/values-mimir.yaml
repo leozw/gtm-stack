@@ -73,11 +73,11 @@ serviceAccount:
   # -- Whether to create a service account or not. In case 'create' is false, do set 'name' to an existing service account name.
   create: true
   # -- Override for the generated service account name.
-  name:
+  name: "mimir"
   labels: {}
 
   annotations: 
-    eks.amazonaws.com/role-arn: arn:aws:iam::<xxxxxxxxxxxx>:role/lgtm 
+    eks.amazonaws.com/role-arn: arn:aws:iam::<xxxxxxxxxxxx>:role/mimir 
 
 # -- Configuration is loaded from the secret called 'externalConfigSecretName'. If 'useExternalConfig' is true, then the configuration is not generated, just consumed.
 useExternalConfig: false
@@ -437,8 +437,8 @@ mimir:
         backend: s3
         s3:
           endpoint: "s3.amazonaws.com" 
-          # access_key_id: ""           # should be used if you do not have a service account
-          # secret_access_key: ""       # should be used if you do not have a service account
+          # access_key_id: "${AWS_SECRET_ACCESS_KEY}" # This is a secret injected via an environment variable && should be used if you do not have a service account
+          # secret_access_key: "${AWS_ACCESS_KEY_ID}" # This is a secret injected via an environment variable && should be used if you do not have a service account
           http:
             insecure_skip_verify: true
 
@@ -447,8 +447,8 @@ mimir:
       s3:
         bucket_name: "mimir-ruler-bucket-123"
         endpoint: "s3.amazonaws.com" 
-        # access_key_id: ""             # should be used if you do not have a service account
-        # secret_access_key: ""         # should be used if you do not have a service account
+        # access_key_id: "${AWS_SECRET_ACCESS_KEY}"   # This is a secret injected via an environment variable && should be used if you do not have a service account
+        # secret_access_key: "${AWS_ACCESS_KEY_ID}"   # This is a secret injected via an environment variable && should be used if you do not have a service account
         http:
           insecure_skip_verify: true
 
@@ -456,8 +456,8 @@ mimir:
       s3:
         bucket_name: lambda-x-ray
         endpoint: "s3.amazonaws.com" 
-        # access_key_id: ""             # should be used if you do not have a service account
-        # secret_access_key: ""         # should be used if you do not have a service account
+        # access_key_id: "${AWS_SECRET_ACCESS_KEY}"   # This is a secret injected via an environment variable && should be used if you do not have a service account
+        # secret_access_key: "${AWS_ACCESS_KEY_ID}"   # This is a secret injected via an environment variable && should be used if you do not have a service account
         http:
           insecure_skip_verify: true
 
