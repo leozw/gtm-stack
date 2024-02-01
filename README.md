@@ -30,7 +30,7 @@ Cada componente é essencial e trabalha em conjunto para oferecer uma visão com
 
 ## **📋 Pré-Requisitos**
 
-- Instalação do Helm e Helmfile (consulte [este guia](https://www.notion.so/Helm-e7ad4d8009be47a8a9196de221f66d4e?pvs=21) para instruções detalhadas).
+- Instalação do Helm e Helmfile (consulte [este guia](https://www.notion.so/e7ad4d8009be47a8a9196de221f66d4e?pvs=21) para instruções detalhadas).
 - Instalação do Terraform  (consulte [este guia](https://www.notion.so/Instalation-4a494c1fe97649d7af8b0f051f8edb51?pvs=21) para instruções detalhadas).
 
 ---
@@ -49,6 +49,21 @@ Utilize **`data`** para recuperar informações do seu cluster EKS existente.
     - **`module "s3-tempo"`** e **`module "s3-mimir"`** criam buckets S3 para armazenar dados do Tempo e Mimir, respectivamente.
 4. **Roles OIDC e Políticas IAM**:
     - **`module "iam-tempo"`** e **`module "iam-mimir"`** configuram roles IAM com políticas que permitem acesso aos buckets S3 correspondentes.
+
+## **Configuração do Backend para Produção**:
+
+Para ambientes de produção, é recomendado configurar o Terraform para usar um bucket S3 como backend, adicionando o seguinte bloco no arquivo **`versions.tf`**:
+
+```yaml
+terraform {
+  backend "s3" {
+    bucket  = "SEU_BUCKET"
+    key     = "tfstate"
+    region  = "SUA_REGIAO"
+    profile = "SEU_PROFILE"
+  }
+}
+```
 
 ## **Aplicando o Terraform**
 
@@ -86,21 +101,6 @@ Inclua os ARNs fornecidos nas annotations dos Helms do Mimir e do Tempo, como mo
 ```yaml
 annotations:
   eks.amazonaws.com/role-arn: arn:aws:iam::<ID_DO_SEU_ACCOUNT>:role/<ROLE_NAME>
-```
-
-## **Configuração do Backend para Produção**:
-
-Para ambientes de produção, é recomendado configurar o Terraform para usar um bucket S3 como backend, adicionando o seguinte bloco no arquivo **`versions.tf`**:
-
-```yaml
-terraform {
-  backend "s3" {
-    bucket  = "SEU_BUCKET"
-    key     = "tfstate"
-    region  = "SUA_REGIAO"
-    profile = "SEU_PROFILE"
-  }
-}
 ```
 
 ---
@@ -207,7 +207,7 @@ Para implantar esta stack com eficiência, é importante considerar os requisito
 
 É recomendável avaliar cuidadosamente as necessidades de CPU, memória e armazenamento, ajustando o Cluster ou NodePool de acordo com essas demandas. Esta avaliação ajudará a garantir que a stack opere de forma estável e eficiente.
 
-![resources](https://media.discordapp.net/attachments/890968993110839316/1201618437269618779/image.png?ex=65ca7960&is=65b80460&hm=eea4a4af6ca50617bc60f4873905e1f615cbcb8c578cd875e3e6ca048989f4e3&=&format=webp&quality=lossless&width=774&height=468)
+!https://media.discordapp.net/attachments/890968993110839316/1201618437269618779/image.png?ex=65ca7960&is=65b80460&hm=eea4a4af6ca50617bc60f4873905e1f615cbcb8c578cd875e3e6ca048989f4e3&=&format=webp&quality=lossless&width=774&height=468
 
 ---
 
