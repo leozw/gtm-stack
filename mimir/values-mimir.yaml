@@ -430,6 +430,8 @@ mimir:
   # Example:
   #permanently delete
   # structuredConfig: {}
+
+  # to use other providers access the doc: https://grafana.com/docs/mimir/latest/configure/configure-object-storage-backend/
   
   structuredConfig:
     common:
