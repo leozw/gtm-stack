@@ -17,6 +17,8 @@ A stack LGTM com Prometheus é projetada para funcionar como um sistema integrad
 
 Cada componente é essencial e trabalha em conjunto para oferecer uma visão completa e detalhada do ambiente, facilitando o monitoramento, a resolução de problemas e a otimização do desempenho.
 
+![arc-pd.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/e299bee0-fe31-4ded-b642-8a492100aed7/a4b549cf-fdac-4bd2-ae38-03b2c623bebe/arc-pd.png)
+
 ---
 
 ## ➕ **Dependências**
@@ -30,7 +32,7 @@ Cada componente é essencial e trabalha em conjunto para oferecer uma visão com
 
 ## **📋 Pré-Requisitos**
 
-- Instalação do Helm e Helmfile (consulte [este guia](https://www.notion.so/e7ad4d8009be47a8a9196de221f66d4e?pvs=21) para instruções detalhadas).
+- Instalação do Helm e Helmfile (consulte [este guia](https://www.notion.so/Helm-e7ad4d8009be47a8a9196de221f66d4e?pvs=21) para instruções detalhadas).
 - Instalação do Terraform  (consulte [este guia](https://www.notion.so/Instalation-4a494c1fe97649d7af8b0f051f8edb51?pvs=21) para instruções detalhadas).
 
 ---
@@ -188,9 +190,9 @@ Explore as métricas disponíveis e faça consultas para validar os dados do Mim
 
 ## **Armazenamento de Objetos para Mimir e Tempo**
 
-Nossa LGTM Stack utiliza o S3 como solução padrão de armazenamento de objetos para Mimir e Tempo. As alternativas incluem:
+Nossa LGTM Stack utiliza o MinIO como solução padrão de armazenamento de objetos para Mimir e Tempo. Entretanto, é totalmente viável substituir o MinIO por outras opções de armazenamento de objetos que sejam compatíveis. As alternativas incluem:
 
-- MinIO
+- AWS S3
 - Google Cloud Storage
 - Azure Blob Storage
 - Qualquer sistema compatível com a API S3
@@ -209,7 +211,7 @@ Para implantar esta stack com eficiência, é importante considerar os requisito
 
 É recomendável avaliar cuidadosamente as necessidades de CPU, memória e armazenamento, ajustando o Cluster ou NodePool de acordo com essas demandas. Esta avaliação ajudará a garantir que a stack opere de forma estável e eficiente.
 
-![resources](https://media.discordapp.net/attachments/890968993110839316/1201618437269618779/image.png?ex=65ca7960&is=65b80460&hm=eea4a4af6ca50617bc60f4873905e1f615cbcb8c578cd875e3e6ca048989f4e3&=&format=webp&quality=lossless&width=774&height=468)
+![resoruces](https://media.discordapp.net/attachments/890968993110839316/1201618437269618779/image.png?ex=65ca7960&is=65b80460&hm=eea4a4af6ca50617bc60f4873905e1f615cbcb8c578cd875e3e6ca048989f4e3&=&format=webp&quality=lossless&width=774&height=468)
 
 ---
 
