@@ -1,9 +1,9 @@
 terraform {
   ## Use for prd
   # backend "s3" {
-  #   bucket    = ""
+  #   bucket    = "mybucket"
   #   key       = "tfstate"
-  #   region    = ""
+  #   region    = "us-east-1"
   #   profile   = ""
   # }
 

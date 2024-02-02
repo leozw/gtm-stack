@@ -32,32 +32,3 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
-
-# Ignorar diretório .terraform onde os plugins são armazenados
-**/.terraform/*
-
-# Ignorar arquivos de estado local que podem conter informações sensíveis
-*.tfstate
-*.tfstate.*.backup
-*.tfstate.backup
-
-# Ignorar arquivos de configuração do plano que podem conter informações sensíveis
-*.tfplan
-*.tfplan.*
-
-# Ignorar arquivos de log
-*.tflog
-
-# Ignorar arquivos de variáveis de ambiente que podem conter informações sensíveis
-*.auto.tfvars
-*.auto.tfvars.json
-
-# Ignorar arquivos de override, que são geralmente específicos para o usuário
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
-
-# Ignorar arquivos de configuração CLI que podem conter informações sensíveis
-.terraformrc
-terraform.rc

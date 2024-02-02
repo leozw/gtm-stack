@@ -1,43 +1,41 @@
 provider "aws" {
   profile = ""
-  region  = ""
+  region  = "us-east-1"
 }
 
 locals {
-  # environment
-  environment = ""
+  environment = "stg"
 }
 
 data "aws_eks_cluster" "this" {
-  # cluster_name
-  name = ""
+  name = "k8s"
 }
 
 data "aws_eks_cluster_auth" "this" {
-  # cluster_name
-  name = ""
+  name = "k8s"
 }
 
 module "s3-tempo" {
   source = "./modules/s3"
 
-  name_bucket = "tempo-bucket-test"
+  name_bucket = "tempo-bucket-test2"
   environment = local.environment
 }
 
 module "s3-mimir" {
   source = "./modules/s3"
 
-  name_bucket = "mimir-bucket-test"
+  name_bucket = "mimir-bucket-test2"
   environment = local.environment
 }
 
 module "s3-mimir-ruler" {
   source = "./modules/s3"
 
-  name_bucket = "mimir-ruler-bucket"
+  name_bucket = "mimir-ruler-bucket-test2"
   environment = local.environment
 }
+
 
 module "iam-tempo" {
   source = "./modules/iam"
@@ -49,9 +47,7 @@ module "iam-tempo" {
       "serviceaccount" = "tempo"
       "string"         = "StringEquals"
       "namespace"      = "lgtm"
-      "policy" = templatefile("${path.module}/templates/policy-lgtm.json", {
-        bucket_name = module.s3-tempo.bucket-name
-      })
+      "policy"         = local.policy_arns
     }
   }
 
@@ -67,10 +63,8 @@ module "iam-mimir" {
       "serviceaccount" = "mimir"
       "string"         = "StringEquals"
       "namespace"      = "lgtm"
-      "policy" = templatefile("${path.module}/templates/policy-lgtm.json", {
-        bucket_name = module.s3-mimir.bucket-name,
-        bucket_name = module.s3-mimir-ruler.bucket-name
-      })
+      "policy"         = local.policy_arns
     }
   }
 }
+

@@ -13,3 +13,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "bucket_name" {
+  description = "A mapping of tags to assign to the resource"
+  type        = any
+  default     = []
+}

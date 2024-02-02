@@ -7,7 +7,9 @@
                 "s3:ListBucket",
                 "s3:GetBucketLocation"
             ],
-            "Resource": "arn:aws:s3:::${bucket_name}"
+            "Resource": [
+                "${bucket_name}"
+            ]
         },
         {
             "Effect": "Allow",
@@ -18,7 +20,10 @@
                 "s3:ListMultipartUploadParts",
                 "s3:AbortMultipartUpload"
             ],
-            "Resource": "arn:aws:s3:::${bucket_name}/*"
+            "Resource": [
+                "${bucket_name}/*"
+                
+            ]
         }
     ]
 }
