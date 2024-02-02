@@ -447,7 +447,7 @@ mimir:
 
     ruler_storage:
       s3:
-        bucket_name: "mimir-ruler-bucket-123"
+        bucket_name: "eks-lgtm-mimir-ruler-bucket"
         endpoint: "s3.amazonaws.com" 
         # access_key_id: "${AWS_SECRET_ACCESS_KEY}"   # This is a secret injected via an environment variable && should be used if you do not have a service account
         # secret_access_key: "${AWS_ACCESS_KEY_ID}"   # This is a secret injected via an environment variable && should be used if you do not have a service account
@@ -456,7 +456,7 @@ mimir:
 
     blocks_storage:
       s3:
-        bucket_name: lambda-x-ray
+        bucket_name: eks-lgtm-mimir-bucket
         endpoint: "s3.amazonaws.com" 
         # access_key_id: "${AWS_SECRET_ACCESS_KEY}"   # This is a secret injected via an environment variable && should be used if you do not have a service account
         # secret_access_key: "${AWS_ACCESS_KEY_ID}"   # This is a secret injected via an environment variable && should be used if you do not have a service account

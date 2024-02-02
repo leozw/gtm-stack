@@ -1311,7 +1311,7 @@ storage:
   trace:
     backend: "s3"
     s3:
-      bucket: "tempo-bucket-test"
+      bucket: "eks-lgtm-tempo-bucket"
       endpoint: "s3.amazonaws.com" 
       # access_key: ""     # Should be used if you do not have a service account
       # secret_key: ""     # Should be used if you do not have a service account
@@ -1332,7 +1332,7 @@ storage:
     # -- The supported storage backends are gcs, s3 and azure, as specified in https://grafana.com/docs/enterprise-traces/latest/config/reference/#admin_client_config
     backend: s3
     s3:
-      bucket: "tempo-bucket-test"
+      bucket: "eks-lgtm-tempo-bucket"
       endpoint: "s3.amazonaws.com" 
       # access_key: ""       # Should be used if you do not have a service account
       # secret_key: ""       # Should be used if you do not have a service account

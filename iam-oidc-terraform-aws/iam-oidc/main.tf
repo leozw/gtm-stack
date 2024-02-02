@@ -18,21 +18,21 @@ data "aws_eks_cluster_auth" "this" {
 module "s3-tempo" {
   source = "./modules/s3"
 
-  name_bucket = "tempo-bucket-test2"
+  name_bucket = "eks-lgtm-tempo-bucket"
   environment = local.environment
 }
 
 module "s3-mimir" {
   source = "./modules/s3"
 
-  name_bucket = "mimir-bucket-test2"
+  name_bucket = "eks-lgtm-mimir-bucket"
   environment = local.environment
 }
 
 module "s3-mimir-ruler" {
   source = "./modules/s3"
 
-  name_bucket = "mimir-ruler-bucket-test2"
+  name_bucket = "eks-lgtm-mimir-ruler-bucket"
   environment = local.environment
 }
 
