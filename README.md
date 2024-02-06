@@ -35,10 +35,15 @@ Cada componente é essencial e trabalha em conjunto para oferecer uma visão com
 - Instalação do Terraform  (consulte [este guia](https://www.notion.so/Instalation-4a494c1fe97649d7af8b0f051f8edb51?pvs=21) para instruções detalhadas).
 
 ---
+## **Aviso Importante para Ambientes de Produção**
+
+Para garantir a máxima eficiência e segurança em ambientes de produção, é fortemente recomendado a utilização de um node pool dedicado exclusivamente para a stack em questão, ou, alternativamente, a configuração de um cluster completamente separado. Essa medida assegura o isolamento adequado dos recursos e otimiza a performance do sistema.
+
+---
 
 # **Configuração Inicial com Terraform**
 
-Antes de prosseguir com a implantação da GTM Stack via Helmfile, é essencial configurar a infraestrutura AWS com Terraform. Este processo cria roles OIDC, políticas IA e buckets S3 necessários para os serviços Tempo e Mimir.
+Antes de prosseguir com a implantação da GTM Stack via Helmfile, é essencial configurar a infraestrutura AWS com Terraform. Este processo cria roles OIDC, políticas IA e buckets S3 necessários para os serviços Tempo e Mimir.1
 
 ## **Configuração do Terraform**
 

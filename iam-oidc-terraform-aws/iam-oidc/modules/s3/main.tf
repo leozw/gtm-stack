@@ -4,9 +4,10 @@ resource "aws_s3_bucket" "this" {
 
   tags = merge(
     {
-      "Name"     = format("%s-%s", var.name_bucket, var.environment)
-      "Platform" = "Storage"
-      "Type"     = "S3"
+      "Name"        = format("%s-%s", var.name_bucket, var.environment)
+      "Platform"    = "Storage"
+      "Type"        = "S3"
+      "Environment" = var.environment
     },
     var.tags,
   )

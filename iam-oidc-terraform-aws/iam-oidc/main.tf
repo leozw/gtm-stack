@@ -3,15 +3,7 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-locals {
-  environment = "stg"
-}
-
 data "aws_eks_cluster" "this" {
-  name = "k8s"
-}
-
-data "aws_eks_cluster_auth" "this" {
   name = "k8s"
 }
 
@@ -47,7 +39,7 @@ module "iam-tempo" {
       "serviceaccount" = "tempo"
       "string"         = "StringEquals"
       "namespace"      = "lgtm"
-      "policy"         = local.policy_arns
+      "policy"         = local.policy_arn_tempo
     }
   }
 
@@ -63,7 +55,7 @@ module "iam-mimir" {
       "serviceaccount" = "mimir"
       "string"         = "StringEquals"
       "namespace"      = "lgtm"
-      "policy"         = local.policy_arns
+      "policy"         = local.policy_arn_mimir
     }
   }
 }

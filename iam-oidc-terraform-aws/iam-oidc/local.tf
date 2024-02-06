@@ -1,5 +1,7 @@
 locals {
-  policy_arns = jsonencode({
+  environment = "prd"
+
+  policy_arn_mimir = jsonencode({
     Version = "2012-10-17",
     Statement = [
       {
@@ -26,7 +28,7 @@ locals {
       },
     ],
   })
-  policy_arn = jsonencode({
+  policy_arn_tempo = jsonencode({
     Version = "2012-10-17",
     Statement = [
       {
