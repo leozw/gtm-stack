@@ -17,7 +17,8 @@ A stack LGTM com Prometheus é projetada para funcionar como um sistema integrad
 
 Cada componente é essencial e trabalha em conjunto para oferecer uma visão completa e detalhada do ambiente, facilitando o monitoramento, a resolução de problemas e a otimização do desempenho.
 
-![arc-pd.png](https://cdn.discordapp.com/attachments/1095404943663439912/1202669044059340800/arc-pd.png?ex=65ce4bd4&is=65bbd6d4&hm=36f60d393d674a8951242a35a8ed94821872448766aae7cf46ae4da0a63618c6&)
+![arc](https://cdn.discordapp.com/attachments/890968993110839316/1204499656025964634/arc-witho-logs.png?ex=65d4f4b8&is=65c27fb8&hm=d45f1af65bffa95fbab3f10bc42b75b11b167cb6724a49f0ce286cdcf3f8c831&)
+
 ---
 
 ## ➕ **Dependências**
@@ -35,22 +36,23 @@ Cada componente é essencial e trabalha em conjunto para oferecer uma visão com
 - Instalação do Terraform  (consulte [este guia](https://www.notion.so/Instalation-4a494c1fe97649d7af8b0f051f8edb51?pvs=21) para instruções detalhadas).
 
 ---
+
 ## **Aviso Importante para Ambientes de Produção**
 
-Para garantir a máxima eficiência e segurança em ambientes de produção, é fortemente recomendado a utilização de um node pool dedicado exclusivamente para a stack em questão, ou, alternativamente, a configuração de um cluster completamente separado. Essa medida assegura o isolamento adequado dos recursos e otimiza a performance do sistema.
+Para garantir a máxima eficiência e segurança em ambientes de produção, é fortemente recomendado a utilização de um *node pool* dedicado exclusivamente para a stack em questão, ou, alternativamente, a configuração de um cluster completamente separado. Essa medida assegura o isolamento adequado dos recursos e otimiza a performance do sistema.
 
 ---
 
 # **Configuração Inicial com Terraform**
 
-Antes de prosseguir com a implantação da GTM Stack via Helmfile, é essencial configurar a infraestrutura AWS com Terraform. Este processo cria roles OIDC, políticas IA e buckets S3 necessários para os serviços Tempo e Mimir.1
+Antes de prosseguir com a implantação da GTM Stack via Helmfile, é essencial configurar a infraestrutura AWS com Terraform. Este processo cria roles OIDC, políticas IA e buckets S3 necessários para os serviços Tempo e Mimir.
 
 ## **Configuração do Terraform**
 
 1. **Provedor AWS**:
 Defina o **`provider`** para especificar o perfil e a região da AWS.
 2. **EKS Cluster**:
-Utilize **`data`** para recuperar informações do seu cluster EKS existente.
+Utilize **`data`** para recuperar informações do seu cluster EKS existente, inserindo o nome do seu cluster EKS.
 3. **Buckets S3**:
     - **`module "s3-tempo"`** e **`module "s3-mimir"`** criam buckets S3 para armazenar dados do Tempo e Mimir, respectivamente.
 4. **Roles OIDC e Políticas IAM**:
@@ -215,7 +217,7 @@ Para implantar esta stack com eficiência, é importante considerar os requisito
 
 É recomendável avaliar cuidadosamente as necessidades de CPU, memória e armazenamento, ajustando o Cluster ou NodePool de acordo com essas demandas. Esta avaliação ajudará a garantir que a stack opere de forma estável e eficiente.
 
-![resoruces](https://media.discordapp.net/attachments/890968993110839316/1201618437269618779/image.png?ex=65ca7960&is=65b80460&hm=eea4a4af6ca50617bc60f4873905e1f615cbcb8c578cd875e3e6ca048989f4e3&=&format=webp&quality=lossless&width=774&height=468)
+![resources](https://cdn.discordapp.com/attachments/890968993110839316/1203041712172175480/image.png?ex=65cfa6e7&is=65bd31e7&hm=d8b685f75678bf327a95faa818470f2d84df3e844cc73ba32e097cf044cc8d5f&)
 
 ---
 
@@ -226,5 +228,3 @@ O repositório está estruturado com diretórios para cada serviço (Grafana, Lo
 ---
 
 ## **Contribuições**
-
-@Emerson Cesario
